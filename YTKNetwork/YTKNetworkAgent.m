@@ -443,6 +443,8 @@
         request = [requestSerializer requestWithMethod:method URLString:URLString parameters:parameters error:error];
     }
 
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+    
     __block NSURLSessionDataTask *dataTask = nil;
     dataTask = [_manager dataTaskWithRequest:request
                            completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *_error) {
